@@ -6,9 +6,9 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
-import { AddContact } from "./pages/AddContact";
-import { Contacts } from "./pages/Contacts";
-import { EditContact } from "./pages/EditContact";
+import { AddContact } from "./pages/AddContact.js";
+import { Contacts } from "./pages/Contacts.js";
+import { EditContact } from "./pages/EditContact.js";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
@@ -27,7 +27,12 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
-						<Route exact path="/contacts">
+						<Route exact path="/index.html" component={Contacts} />
+						<Route exact path="/" component={Contacts} />
+						<Route exact path="/contacts" component={Contacts} />
+						<Route exact path="/add" component={AddContact} />
+						<Route exact path="/edit/:id" component={EditContact} />
+						{/* <Route exact path="/contacts">
 							<Contacts />
 						</Route>
 						<Route exact path="/edit">
@@ -35,7 +40,7 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/add">
 							<AddContact />
-						</Route>
+						</Route> */}
 						{/* <Route exact path="/single/:theid">
 							<Single />
 						</Route> */}

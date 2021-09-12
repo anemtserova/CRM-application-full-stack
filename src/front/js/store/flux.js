@@ -52,7 +52,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 			},
 
 			getFetch: () => {
-				fetch("https://assets.breatheco.de/apis/fake/contact/agenda/agenda_2021")
+				fetch("https://assets.breatheco.de/apis/fake/contact/agenda/agenda_2025")
 					.then(response => {
 						if (!response.ok) {
 							throw Error(response.statusText);
@@ -72,7 +72,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					body: JSON.stringify({
 						full_name: contact.name,
 						email: contact.email,
-						agenda_slug: "agenda_2021",
+						agenda_slug: "agenda_2025",
 						address: contact.address,
 						phone: contact.phone
 					})
