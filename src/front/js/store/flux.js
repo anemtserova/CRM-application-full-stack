@@ -14,7 +14,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					body: JSON.stringify({
 						full_name: monkey.full_name,
 						email: monkey.email,
-						agenda_slug: "agenda_2021",
+						agenda_slug: "agenda_2025",
 						address: monkey.address,
 						phone: monkey.phone
 					})
