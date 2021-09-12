@@ -6,9 +6,14 @@ import { Home } from "./pages/home";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
+import { AddContact } from "./pages/AddContact";
+import { Contacts } from "./pages/Contacts";
+import { EditContact } from "./pages/EditContact";
 
 import { Navbar } from "./component/navbar";
 import { Footer } from "./component/footer";
+import { Modal } from "./component/Modal";
+import { ContactCard } from "./component/ContactCard";
 
 //create your first component
 const Layout = () => {
@@ -22,15 +27,18 @@ const Layout = () => {
 				<ScrollToTop>
 					<Navbar />
 					<Switch>
-						<Route exact path="/">
-							<Home />
+						<Route exact path="/contacts">
+							<Contacts />
 						</Route>
-						<Route exact path="/demo">
-							<Demo />
+						<Route exact path="/edit">
+							<EditContact />
 						</Route>
-						<Route exact path="/single/:theid">
+						<Route exact path="/add">
+							<AddContact />
+						</Route>
+						{/* <Route exact path="/single/:theid">
 							<Single />
-						</Route>
+						</Route> */}
 						<Route>
 							<h1>Not found!</h1>
 						</Route>
