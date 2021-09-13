@@ -10,8 +10,8 @@ import { AddContact } from "./pages/AddContact.js";
 import { Contacts } from "./pages/Contacts.js";
 import { EditContact } from "./pages/EditContact.js";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+import { Navbar } from "./component/navbar.js";
+import { Footer } from "./component/footer.js";
 import { Modal } from "./component/Modal";
 import { ContactCard } from "./component/ContactCard";
 
@@ -28,7 +28,8 @@ const Layout = () => {
 					<Navbar />
 					<Switch>
 						<Route exact path="/index.html" component={Contacts} />
-						<Route exact path="/" component={Contacts} />
+						{/* <Route exact path="/" component={Contacts} /> */}
+						<Route exact path="/" > <Contacts/> </Route>
 						<Route exact path="/contacts" component={Contacts} />
 						<Route exact path="/add" component={AddContact} />
 						<Route exact path="/edit/:id" component={EditContact} />
