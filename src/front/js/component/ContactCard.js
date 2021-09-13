@@ -16,7 +16,8 @@ export const ContactCard = props => {
 					<img
 						src={SmileyPhoto}
 						alt="Mike Anamendolla"
-						className="rounded-circle mx-auto d-block img-fluid"
+						className="rounded-circle mx-auto d-block"
+						style={{ maxWidth: "75%" }}
 					/>
 				</div>
 				<div className="col-12 col-sm-6 col-md-9 text-center text-sm-left">
