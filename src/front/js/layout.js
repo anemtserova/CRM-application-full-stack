@@ -37,8 +37,8 @@ const Layout = () => {
 						<Route exact path="/contacts" component={Contacts} />
 						<Route exact path="/add" component={AddContact} />
 						<Route exact path="/login">
-							<Login/>
-							</Route> 
+							<Login />
+						</Route>
 						<Route exact path="/edit/:id" component={EditContact} />
 						{/* <Route exact path="/contacts">
 							<Contacts />
