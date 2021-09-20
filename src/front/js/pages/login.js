@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { GlobalState } from "../store/appContext";
 
 export const Login = () => {
@@ -7,8 +7,18 @@ export const Login = () => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 	const token = sessionStorage.getItem("token");
+	const history = useHistory();
 
-	const handleLogin = () => {};
+	const handleLogin = () => {
+		actions.login(username, password);//.then(() => {
+			// history.push("/contacts");
+		// });
+	};
+
+	if (token && token != " " && token != undefined) {
+		history.push("/contacts");
+	}
+
 
 	return (
 		<div className="container-fluid d-flex flex-column align-items-center ">

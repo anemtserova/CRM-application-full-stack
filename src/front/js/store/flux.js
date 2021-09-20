@@ -2,10 +2,21 @@ const getState = ({ getStore, setStore, getActions }) => {
 	return {
 		store: {
 			//Your data structures, A.K.A Entities
-			contacts: []
+			contacts: [],
+			token: null
 		},
 		actions: {
-			login: () => {
+			saveTokenFromSessionStorage: () => {
+				const token = sessionStorage.getItem("token");
+				if (token && token != "" && token != undefined) {
+					setStore({token: token});
+				}
+			},
+			logout: () => {
+				sessionStorage.removeItem("token");
+				if (token && token != token != undefined) setStore({token: token});
+			},
+			login: async (username, password) => {
 				const opts = {
 					method: "POST",
 					headers: {
@@ -16,16 +27,20 @@ const getState = ({ getStore, setStore, getActions }) => {
 						password: password
 					})
 				};
-				fetch("https://3001-apricot-gull-2kgbaff4.ws-eu16.gitpod.io/api/token", opts)
-					.then(response => {
-						if (response.status == 200) return response.json();
-						else alert("There has been an error.");
-					})
-					.then(data => {
-						console.log("This came from the backend", data);
-						sessionStorage.setItem("token", data.access_token);
-					})
-					.catch(error => console.log("There was an error!", error));
+				try {
+					const resp = await fetch("https://3001-apricot-gull-2kgbaff4.ws-eu16.gitpod.io/api/token", opts);
+					if (resp.status !== 200) {
+						alert("There has been an error.");
+						return false;
+					}
+					const data = await resp.json();
+					console.log("This came from the backend", data);
+					sessionStorage.setItem("token", data.access_token);
+					setStore({ token: data.access_token });
+					return true;
+				} catch (error) {
+					console.error("There has been an error while loging in.");
+				}
 			},
 			editFetch: monkey => {
 				fetch("https://assets.breatheco.de/apis/fake/contact/" + monkey.kite, {

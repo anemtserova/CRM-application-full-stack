@@ -50,7 +50,7 @@ export const AddContact = props => {
 							onChange={handleInput}
 							type="phone"
 							className="form-control"
-							name="address"
+							name="phone"
 							placeholder="Enter phone"
 						/>
 					</div>
@@ -60,7 +60,7 @@ export const AddContact = props => {
 							onChange={handleInput}
 							type="text"
 							className="form-control"
-							name="phone"
+							name="address"
 							placeholder="Enter address"
 						/>
 					</div>
