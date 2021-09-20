@@ -10,15 +10,16 @@ export const Login = () => {
 	const history = useHistory();
 
 	const handleLogin = () => {
-		actions.login(username, password); //.then(() => {
-		// history.push("/contacts");
-		// });
+		actions.login(username, password).then(() => {
+			history.push("/contacts");
+		});
+		console.log("You're logged in already");
 	};
 
-	if (store.token && store.token != " " && store.token != undefined) {
-		history.push("/contacts");
-		console.log("You're logged in already");
-	}
+	// if (store.token && store.token != " " && store.token != undefined) {
+	// 	history.push("/contacts");
+	// 	console.log("You're logged in already");
+	// }
 
 	return (
 		<div className="container-fluid d-flex flex-column align-items-center ">

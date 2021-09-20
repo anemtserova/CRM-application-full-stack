@@ -14,7 +14,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 			},
 			logout: () => {
 				sessionStorage.removeItem("token");
-				if (token && (token != token) != undefined) setStore({ token: token });
+				setStore({ token: null });
 			},
 			login: async (username, password) => {
 				const opts = {

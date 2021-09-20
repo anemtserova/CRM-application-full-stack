@@ -36,10 +36,11 @@ const Layout = () => {
 						<Route exact path="/add" component={AddContact} />
 						<Route exact path="/edit/:id" component={EditContact} />
 						<Route exact path="/" component={Contacts} />
+						<Route exact path="/demo" component={Demo} />
 
-						{/* <Route exact path="/">
+						<Route exact path="/">
 							<Contacts />
-						</Route> */}
+						</Route>
 						<Route exact path="/contacts">
 							<Contacts />
 						</Route>

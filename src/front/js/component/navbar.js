@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+
+import { GlobalState } from "../store/appContext";
 
 export const Navbar = () => {
 	const { store, actions } = useContext(GlobalState);
+	const history = useHistory();
 
 	return (
 		<nav className="navbar navbar-light bg-light mb-3">
@@ -16,7 +19,12 @@ export const Navbar = () => {
 						</Link>
 					</div>
 				) : (
-					<button className="btn btn-warning" onClick={() => actions.logout()}>
+					<button
+						className="btn btn-warning"
+						onClick={() => {
+							actions.logout();
+							history.push("/demo");
+						}}>
 						Log Out
 					</button>
 				)}
