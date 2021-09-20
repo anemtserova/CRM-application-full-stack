@@ -9,12 +9,12 @@ const getState = ({ getStore, setStore, getActions }) => {
 			saveTokenFromSessionStorage: () => {
 				const token = sessionStorage.getItem("token");
 				if (token && token != "" && token != undefined) {
-					setStore({token: token});
+					setStore({ token: token });
 				}
 			},
 			logout: () => {
 				sessionStorage.removeItem("token");
-				if (token && token != token != undefined) setStore({token: token});
+				if (token && (token != token) != undefined) setStore({ token: token });
 			},
 			login: async (username, password) => {
 				const opts = {

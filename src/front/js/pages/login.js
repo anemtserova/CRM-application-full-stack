@@ -10,22 +10,22 @@ export const Login = () => {
 	const history = useHistory();
 
 	const handleLogin = () => {
-		actions.login(username, password);//.then(() => {
-			// history.push("/contacts");
+		actions.login(username, password); //.then(() => {
+		// history.push("/contacts");
 		// });
 	};
 
-	if (token && token != " " && token != undefined) {
+	if (store.token && store.token != " " && store.token != undefined) {
 		history.push("/contacts");
+		console.log("You're logged in already");
 	}
-
 
 	return (
 		<div className="container-fluid d-flex flex-column align-items-center ">
 			<div className="d-flex justify-content-center w-25">
 				<h1>User Login</h1>
 			</div>
-			{token && token != "" && token != undefined ? (
+			{store.token && store.token != "" && store.token != undefined ? (
 				<>
 					<h2>You are logged in with token</h2>
 					<h4 className="w-50">{username}</h4>
