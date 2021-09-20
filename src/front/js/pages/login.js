@@ -7,7 +7,25 @@ export const Login = () => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
 
-	const handleLogin = () => {};
+	const handleLogin = () => {
+		const opts = {
+			method: "POST",
+			headers: {
+				"Content-type": "application/json"
+			},
+			body: JSON.stringify({
+				username: username,
+				password: password
+			})
+		};
+		fetch("https://3001-apricot-gull-2kgbaff4.ws-eu16.gitpod.io/api/token", opts)
+			.then(response => {
+				if (response.status == 200) return response.JSON;
+				else alert("There has been an error.");
+			})
+			.then()
+			.catch(error => console.log("There was an error!", error));
+	};
 
 	return (
 		<div className="container-fluid d-flex flex-column align-items-center ">
@@ -29,7 +47,7 @@ export const Login = () => {
 					onChange={e => setPassword(e.target.value)}
 					className="m-1"
 				/>
-				<button type="submit" className="m-1">
+				<button onClick={handleLogin} type="submit" className="m-1">
 					Login
 				</button>
 			</div>
