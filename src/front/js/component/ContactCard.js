@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
-import SmileyPhoto from "../../img/smiley.jpg";
+import RetroPhonePhoto from "../../img/retro-phone.jpg";
 import { Link } from "react-router-dom";
 
 export const ContactCard = props => {
@@ -14,9 +14,9 @@ export const ContactCard = props => {
 			<div className="row w-100">
 				<div className="col-12 col-sm-6 col-md-3 px-0">
 					<img
-						src={SmileyPhoto}
-						alt="Mike Anamendolla"
-						className="rounded-circle mx-auto d-block"
+						src={RetroPhonePhoto}
+						alt="Retro phone image"
+						className="mx-auto d-block"
 						style={{ maxWidth: "75%" }}
 					/>
 				</div>
