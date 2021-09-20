@@ -30,17 +30,13 @@ const Layout = () => {
 					<Switch>
 						<Route exact path="/index.html" component={Contacts} />
 						{/* <Route exact path="/" component={Contacts} /> */}
-						<Route exact path="/">
-							{" "}
-							<Contacts />{" "}
-						</Route>
-						<Route exact path="/contacts" component={Contacts} />
-						<Route exact path="/add" component={AddContact} />
 						<Route exact path="/login">
 							<Login />
 						</Route>
-						<Route exact path="/edit/:id" component={EditContact} />
-						{/* <Route exact path="/contacts">
+						<Route exact path="/">
+							<Contacts />
+						</Route>
+						<Route exact path="/contacts">
 							<Contacts />
 						</Route>
 						<Route exact path="/edit">
@@ -48,7 +44,7 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/add">
 							<AddContact />
-						</Route> */}
+						</Route>
 						{/* <Route exact path="/single/:theid">
 							<Single />
 						</Route> */}
