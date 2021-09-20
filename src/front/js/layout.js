@@ -2,14 +2,14 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./pages/home";
+import { Home } from "./pages/login";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
 import { AddContact } from "./pages/AddContact.js";
 import { Contacts } from "./pages/Contacts.js";
 import { EditContact } from "./pages/EditContact.js";
-import { Login } from "./pages/Login.js";
+import { Login } from "./pages/login.js";
 
 import { Navbar } from "./component/navbar.js";
 import { Footer } from "./component/footer.js";
