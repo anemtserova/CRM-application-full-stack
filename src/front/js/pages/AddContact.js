@@ -5,14 +5,19 @@ import PropTypes from "prop-types";
 
 export const AddContact = props => {
 	const { store, actions } = useContext(GlobalState);
-	const [contact, setContact] = useState({ name: null, email: null, address: null, phone: null });
+	const [contact, setContact] = useState({
+		name: null,
+		email: null,
+		address: null,
+		phone: null
+	});
 	const handleInput = e => {
 		// console.log(e.target);
 		setContact({ ...contact, [e.target.name]: e.target.value });
 	};
 	const handleSave = () => {
 		actions.postFetch(contact);
-		props.history.push("/");
+		props.history.push("/contacts");
 	};
 	return (
 		<div className="container">

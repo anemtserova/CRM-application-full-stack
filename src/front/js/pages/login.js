@@ -8,28 +8,7 @@ export const Login = () => {
 	const [password, setPassword] = useState("");
 	const token = sessionStorage.getItem("token");
 
-	const handleLogin = () => {
-		const opts = {
-			method: "POST",
-			headers: {
-				"Content-type": "application/json"
-			},
-			body: JSON.stringify({
-				username: username,
-				password: password
-			})
-		};
-		fetch("https://3001-apricot-gull-2kgbaff4.ws-eu16.gitpod.io/api/token", opts)
-			.then(response => {
-				if (response.status == 200) return response.json();
-				else alert("There has been an error.");
-			})
-			.then(data => {
-				console.log("This came from the backend", data);
-				sessionStorage.setItem("token", data.access_token);
-			})
-			.catch(error => console.log("There was an error!", error));
-	};
+	const handleLogin = () => {};
 
 	return (
 		<div className="container-fluid d-flex flex-column align-items-center ">
