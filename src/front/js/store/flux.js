@@ -73,11 +73,11 @@ const getState = ({ getStore, setStore, getActions }) => {
 				const store = getStore();
 				const opts = {
 					headers: {
-						Authorization: "Bearer" + store.token
+						Authorization: "Bearer " + store.token
 					}
 				};
 
-				fetch(process.env.BACKEND_URL + "/api/greet", opts)
+				fetch("https://3001-apricot-gull-2kgbaff4.ws-eu16.gitpod.io/api/greet", opts)
 					.then(resp => resp.json())
 					.then(data => setStore({ message: data.message }))
 					.catch(err => console.log("There has been an error loading message from backend", err));

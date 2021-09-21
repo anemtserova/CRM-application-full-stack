@@ -8,17 +8,27 @@ import "../../styles/demo.scss";
 export const Home = () => {
 	const { store, actions } = useContext(GlobalState);
 
-	useEffect(() => {
-		actions.greetUser();
-	}, []);
+	useEffect(
+		() => {
+			if (store.token && store.token != "" && store.token != undefined) actions.greetUser();
+		},
+		[store.token]
+	);
 
 	return (
-		<div className="container-fluid ">
+		<div className="container-fluid">
 			<h1>Welcome to KeepItApp</h1>
 
-			<Link to="/login">
-				<button className="btn btn-primary">Login Here</button>
-			</Link>
+			{!store.token ? (
+				<Link to="/login">
+					<button className="btn btn-primary">Login Here</button>
+				</Link>
+			) : (
+				<div>
+					<p>{store.message}</p>
+					<Link to="/contacts">Go to Your Contacts</Link>
+				</div>
+			)}
 		</div>
 	);
 };

@@ -11,7 +11,7 @@ export const Login = () => {
 
 	const handleLogin = () => {
 		actions.login(username, password).then(() => {
-			history.push("/contacts");
+			history.push("/");
 		});
 		console.log("You're logged in already");
 		console.log(store.message);
