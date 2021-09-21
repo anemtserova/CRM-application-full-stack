@@ -32,18 +32,18 @@ export const Modal = props => {
 						)}
 					</div>
 					<div className="modal-body">
-						<p>Warning: unknown consequences after this point... Kidding!</p>
+						<p>You are about to delete this contact permanantly. This action is irreversible.</p>
 					</div>
 					<div className="modal-footer">
 						<button type="button" className="btn btn-primary" onClick={() => props.onClose()}>
-							Oh no!
+							Cancel
 						</button>
 						<button
 							type="button"
 							className="btn btn-secondary"
 							data-dismiss="modal"
 							onClick={() => handleDoIt()}>
-							Do it!
+							Delete
 						</button>
 					</div>
 				</div>

@@ -10,22 +10,26 @@ export const Home = () => {
 
 	useEffect(
 		() => {
-			if (store.token && store.token != "" && store.token != undefined) actions.greetUser();
+			if (store.token && store.token != "" && store.token != undefined) {
+				actions.greetUser();
+				actions.getFetch();
+			}
 		},
 		[store.token]
 	);
 
 	return (
 		<div className="container-fluid">
-			<h1>Welcome to KeepItApp</h1>
-
 			{!store.token ? (
-				<Link to="/login">
-					<button className="btn btn-primary">Login Here</button>
-				</Link>
+				<>
+					<h1>Welcome to KeepItApp</h1>
+					<Link to="/login">
+						<button className="btn btn-primary">Login Here</button>
+					</Link>
+				</>
 			) : (
 				<div>
-					<p>{store.message}</p>
+					<h1>{store.message}</h1>
 					<Link to="/contacts">Go to Your Contacts</Link>
 				</div>
 			)}

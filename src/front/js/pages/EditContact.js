@@ -11,14 +11,15 @@ export const EditContact = props => {
 		email: contact.email,
 		address: contact.address,
 		phone: contact.phone,
-		kite: contact.id
+		note: contact.note,
+		id: contact.id
 	});
 	const handleInput = e => {
 		setEditedContact({ ...editedContact, [e.target.name]: e.target.value });
 	};
 	const handleSave = () => {
 		actions.editFetch(editedContact);
-		props.history.push("/");
+		props.history.push("/contacts");
 	};
 	return (
 		<div className="container">
@@ -69,10 +70,21 @@ export const EditContact = props => {
 							value={editedContact.address}
 						/>
 					</div>
+					<div className="form-group">
+						<label>Note</label>
+						<input
+							onChange={handleInput}
+							type="text"
+							className="form-control"
+							name="note"
+							placeholder="Write a note"
+							value={editedContact.note}
+						/>
+					</div>
 					<button onClick={handleSave} type="button" className="btn btn-primary form-control">
 						Save
 					</button>
-					<Link className="mt-3 w-100 text-center" to="/">
+					<Link className="mt-3 w-100 text-center" to="/contacts">
 						or get back to contacts
 					</Link>
 				</form>

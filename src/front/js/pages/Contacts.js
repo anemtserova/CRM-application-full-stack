@@ -29,7 +29,7 @@ export const Contacts = () => {
 				</p>
 				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">
 					<ul className="list-group pull-down" id="contact-list">
-						{store.contacts
+						{store.contacts && store.token
 							? store.contacts.map((contact, i) => (
 									<ContactCard key={i} entity={contact} onDelete={() => stateSetter(contact.id)} />
 							  ))

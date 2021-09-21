@@ -43,18 +43,19 @@ const getState = ({ getStore, setStore, getActions }) => {
 					console.error("There has been an error while loging in.");
 				}
 			},
-			editFetch: monkey => {
-				fetch("https://assets.breatheco.de/apis/fake/contact/" + monkey.kite, {
+			editFetch: person => {
+				fetch("https://assets.breatheco.de/apis/fake/contact/" + person.id, {
 					method: "PUT",
 					headers: {
 						"Content-Type": "application/json"
 					},
 					body: JSON.stringify({
-						full_name: monkey.full_name,
-						email: monkey.email,
+						full_name: person.full_name,
+						email: person.email,
 						agenda_slug: "agenda_2025",
-						address: monkey.address,
-						phone: monkey.phone
+						address: person.address,
+						phone: person.phone,
+						note: person.note
 					})
 				})
 					.then(response => {
@@ -69,6 +70,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					})
 					.catch(err => console.log("There was a following error: " + err));
 			},
+
 			greetUser: () => {
 				const store = getStore();
 				const opts = {
@@ -82,8 +84,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					.then(data => setStore({ message: data.message }))
 					.catch(err => console.log("There has been an error loading message from backend", err));
 			},
-			//(Arrow) Functions that update the Store
-			// Remember to use the scope: scope.state.store & scope.setState()
+
 			deleteFetch: id => {
 				fetch("https://assets.breatheco.de/apis/fake/contact/" + id, {
 					method: "DELETE"
@@ -124,7 +125,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 						email: contact.email,
 						agenda_slug: "agenda_2025",
 						address: contact.address,
-						phone: contact.phone
+						phone: contact.phone,
+						note: contact.note
 					})
 				})
 					.then(response => {

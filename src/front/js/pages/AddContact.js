@@ -9,7 +9,8 @@ export const AddContact = props => {
 		name: null,
 		email: null,
 		address: null,
-		phone: null
+		phone: null,
+		note: null
 	});
 	const handleInput = e => {
 		// console.log(e.target);
@@ -64,10 +65,20 @@ export const AddContact = props => {
 							placeholder="Enter address"
 						/>
 					</div>
+					<div className="form-group">
+						<label>Note</label>
+						<input
+							onChange={handleInput}
+							type="text"
+							className="form-control"
+							name="note"
+							placeholder="Write a note"
+						/>
+					</div>
 					<button onClick={() => handleSave()} type="button" className="btn btn-primary form-control">
 						Save
 					</button>
-					<Link className="mt-3 w-100 text-center" to="/">
+					<Link className="mt-3 w-100 text-center" to="/contacts">
 						or get back to contacts
 					</Link>
 				</form>
