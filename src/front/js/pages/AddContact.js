@@ -9,13 +9,23 @@ export const AddContact = props => {
 		name: null,
 		email: null,
 		address: null,
-		phone: null,
-		note: null
+		phone: null	
 	});
+
+	// const [note, setNote] = useState({
+	// 	text: null,
+	// 	id: null
+	// })
+
 	const handleInput = e => {
 		// console.log(e.target);
 		setContact({ ...contact, [e.target.name]: e.target.value });
 	};
+
+	const saveNote = () => {
+
+	}
+
 	const handleSave = () => {
 		actions.postFetch(contact);
 		props.history.push("/contacts");

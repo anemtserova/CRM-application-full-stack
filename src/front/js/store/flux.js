@@ -4,7 +4,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 			//Your data structures, A.K.A Entities
 			contacts: [],
 			token: null,
-			message: ""
+			message: "",
+			// note: ""
 		},
 		actions: {
 			saveTokenFromSessionStorage: () => {
@@ -137,6 +138,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					})
 					.then(data => {
 						getActions().getFetch();
+						console.log("This is the POST fetch data ", data);
 						// confirm return of data here
 					})
 					.catch(err => console.log("There was a following error: " + err));
