@@ -13,7 +13,7 @@ export const Home = () => {
 	}, []);
 
 	return (
-		<div className="container-fluid h-100">
+		<div className="container-fluid ">
 			<h1>Welcome to KeepItApp</h1>
 
 			<Link to="/login">
