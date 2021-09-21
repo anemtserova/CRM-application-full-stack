@@ -24,7 +24,7 @@ export const Contacts = () => {
 			<div>
 				<p className="text-right my-3">
 					<Link className="btn btn-success" to="/add">
-						Add new contact
+						Add a new contact
 					</Link>
 				</p>
 				<div id="contacts" className="panel-collapse collapse show" aria-expanded="true">

@@ -14,6 +14,7 @@ export const Login = () => {
 			history.push("/contacts");
 		});
 		console.log("You're logged in already");
+		console.log(store.message);
 	};
 
 	// if (store.token && store.token != " " && store.token != undefined) {
@@ -22,7 +23,7 @@ export const Login = () => {
 	// }
 
 	return (
-		<div className="container-fluid d-flex flex-column align-items-center ">
+		<div className="container-fluid d-flex flex-column align-items-center h-100">
 			<div className="d-flex justify-content-center w-25">
 				<h1>User Login</h1>
 			</div>

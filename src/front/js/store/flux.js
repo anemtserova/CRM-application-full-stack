@@ -3,7 +3,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 		store: {
 			//Your data structures, A.K.A Entities
 			contacts: [],
-			token: null
+			token: null,
+			message: ""
 		},
 		actions: {
 			saveTokenFromSessionStorage: () => {
@@ -68,7 +69,19 @@ const getState = ({ getStore, setStore, getActions }) => {
 					})
 					.catch(err => console.log("There was a following error: " + err));
 			},
+			greetUser: () => {
+				const store = getStore();
+				const opts = {
+					headers: {
+						Authorization: "Bearer" + store.token
+					}
+				};
 
+				fetch(process.env.BACKEND_URL + "/api/greet", opts)
+					.then(resp => resp.json())
+					.then(data => setStore({ message: data.message }))
+					.catch(err => console.log("There has been an error loading message from backend", err));
+			},
 			//(Arrow) Functions that update the Store
 			// Remember to use the scope: scope.state.store & scope.setState()
 			deleteFetch: id => {

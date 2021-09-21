@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
-import { Home } from "./pages/login";
+// import { Home } from "./pages/login";
 import { Demo } from "./pages/demo";
 import { Single } from "./pages/single";
 import injectContext from "./store/appContext";
@@ -10,6 +10,7 @@ import { AddContact } from "./pages/AddContact.js";
 import { Contacts } from "./pages/Contacts.js";
 import { EditContact } from "./pages/EditContact.js";
 import { Login } from "./pages/login.js";
+import { Home } from "./pages/home.js";
 
 import { Navbar } from "./component/navbar.js";
 import { Footer } from "./component/footer.js";
@@ -23,7 +24,7 @@ const Layout = () => {
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div>
+		<div className="full-screen ">
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
 					<Navbar />
@@ -35,11 +36,11 @@ const Layout = () => {
 						</Route>
 						<Route exact path="/add" component={AddContact} />
 						<Route exact path="/edit/:id" component={EditContact} />
-						<Route exact path="/" component={Contacts} />
+						<Route exact path="/" component={Home} />
 						<Route exact path="/demo" component={Demo} />
 
 						<Route exact path="/">
-							<Contacts />
+							<Home />
 						</Route>
 						<Route exact path="/contacts">
 							<Contacts />
