@@ -1,10 +1,9 @@
 const getState = ({ getStore, setStore, getActions }) => {
 	return {
 		store: {
-			
 			contacts: [],
 			token: null,
-			message: "",
+			message: ""
 			// note: ""
 		},
 		actions: {

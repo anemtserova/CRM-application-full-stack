@@ -31,9 +31,9 @@ def create_token():
 @jwt_required()
 def greet_user():
     
-    # username = get_jwt_identity("username")
+    username = get_jwt_identity()
     hello_user = {
-        "message": "Hello User!" 
+        "message": "Hello "+ username + "!"
         }
     
     return jsonify(hello_user)
