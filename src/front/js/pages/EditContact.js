@@ -20,11 +20,12 @@ export const EditContact = props => {
 	const handleSave = () => {
 		actions.editFetch(editedContact);
 		props.history.push("/contacts");
+		console.log("Edited note", editedContact.note);
 	};
 	return (
 		<div className="container">
 			<div>
-				<h1 className="text-center mt-5">Edit contact {contact.id}</h1>
+				<h1 className="text-center mt-5">Edit contact {contact.full_name}</h1>
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>

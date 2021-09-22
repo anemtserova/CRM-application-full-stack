@@ -3,10 +3,56 @@ const getState = ({ getStore, setStore, getActions }) => {
 		store: {
 			contacts: [],
 			token: null,
-			message: ""
-			// note: ""
+			message: "",
+			noteArray: [],
+			apiAddress: "https://assets.breatheco.de/apis/fake/todos/user/",
+			userApi: null
 		},
 		actions: {
+			handleNoteList: (username, password) => {
+				const store = getStore();
+				{
+					store.userApi && store.userApi == store.apiAddress + username
+						? fetch(store.apiAddress + username, {
+								headers: {
+									"Content-type": "application/json"
+								}
+						  })
+								.then(response => {
+									if (!response.ok) {
+										throw Error(response.statusText);
+									}
+									return response.json();
+								})
+								.then(data => {
+									console.log("This is the data from handleNoteList() GET", data);
+
+									// confirm return of data here
+								})
+								.catch(err => console.log("There was a following error: " + err))
+						: fetch(store.apiAddress + username, {
+								method: "POST",
+								headers: {
+									"Content-type": "application/json"
+								},
+								body: JSON.stringify([])
+						  })
+								.then(response => {
+									if (!response.ok) {
+										throw Error(response.statusText);
+									}
+									return response.json();
+								})
+								.then(data => {
+									console.log("This is the data from handleNoteList()", data);
+									const userApi = store.apiAddress + username;
+									setStore({ userApi: userApi });
+									console.log("This is user API ", store.userApi);
+									// confirm return of data here
+								})
+								.catch(err => console.log("There was a following error: " + err));
+				}
+			},
 			saveTokenFromSessionStorage: () => {
 				const token = sessionStorage.getItem("token");
 				if (token && token != "" && token != undefined) {
