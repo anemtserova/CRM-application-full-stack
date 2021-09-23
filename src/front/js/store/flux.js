@@ -5,15 +5,8 @@ const getState = ({ getStore, setStore, getActions }) => {
 			token: null,
 			message: "",
 			noteArray: JSON.parse(localStorage.getItem("notes")) || []
-			// apiAddress: "https://assets.breatheco.de/apis/fake/todos/user/",
-			// userApi: null
 		},
 		actions: {
-			// saveNoteList: note => {
-			// 	const store = getStore();
-			// 	store.contacts["note"] = note;
-			// 	setStore({ contacts: contacts.note });
-			// },
 			saveTokenFromSessionStorage: () => {
 				const token = sessionStorage.getItem("token");
 				if (token && token != "" && token != undefined) {

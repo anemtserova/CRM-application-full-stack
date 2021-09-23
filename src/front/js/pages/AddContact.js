@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 
 export const AddContact = props => {
 	const { store, actions } = useContext(GlobalState);
-	//let contactId = store.contacts.find((el, i) => el.id == props.match.params.id);
+
 	const [contact, setContact] = useState({
 		name: null,
 		email: null,
@@ -14,29 +14,15 @@ export const AddContact = props => {
 		note: null
 	});
 
-	// const [noteList, setNoteList] = useState({
-	// 	newNote: null,
-	// 	noteId: null
-	// });
-
 	const handleInput = e => {
-		// console.log(e.target);
 		setContact({ ...contact, [e.target.name]: e.target.value });
 	};
 
-	// const saveNote = () => {
-	// 	actions.saveNoteList(contact.note);
-	// 	console.log("Store contacts: ", store.contacts);
-	// 	//console.log("noteList: ", noteList);
-	// 	console.log("contact: ", contact);
-	// };
-
 	const handleSave = () => {
 		actions.postFetch(contact);
-		//saveNote();
+
 		props.history.push("/contacts");
 		console.log("This is the store.contacts ", store.contacts);
-		// console.log("This is the note list", noteList);
 	};
 	return (
 		<div className="container">

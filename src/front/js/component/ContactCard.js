@@ -7,9 +7,7 @@ import { GlobalState } from "../store/appContext";
 
 export const ContactCard = props => {
 	const { store, actions } = useContext(GlobalState);
-	const [state, setState] = useState({
-		//initialize state here
-	});
+	const [state, setState] = useState({});
 
 	const includeNote = () => {
 		const userNote = store.noteArray.find((el, i) => el.userId == props.entity.id);
