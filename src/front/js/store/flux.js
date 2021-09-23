@@ -4,55 +4,16 @@ const getState = ({ getStore, setStore, getActions }) => {
 			contacts: [],
 			token: null,
 			message: "",
-			noteArray: [],
-			apiAddress: "https://assets.breatheco.de/apis/fake/todos/user/",
-			userApi: null
+			noteArray: JSON.parse(localStorage.getItem("notes")) || []
+			// apiAddress: "https://assets.breatheco.de/apis/fake/todos/user/",
+			// userApi: null
 		},
 		actions: {
-			handleNoteList: (username, password) => {
-				const store = getStore();
-				{
-					store.userApi && store.userApi == store.apiAddress + username
-						? fetch(store.apiAddress + username, {
-								headers: {
-									"Content-type": "application/json"
-								}
-						  })
-								.then(response => {
-									if (!response.ok) {
-										throw Error(response.statusText);
-									}
-									return response.json();
-								})
-								.then(data => {
-									console.log("This is the data from handleNoteList() GET", data);
-
-									// confirm return of data here
-								})
-								.catch(err => console.log("There was a following error: " + err))
-						: fetch(store.apiAddress + username, {
-								method: "POST",
-								headers: {
-									"Content-type": "application/json"
-								},
-								body: JSON.stringify([])
-						  })
-								.then(response => {
-									if (!response.ok) {
-										throw Error(response.statusText);
-									}
-									return response.json();
-								})
-								.then(data => {
-									console.log("This is the data from handleNoteList()", data);
-									const userApi = store.apiAddress + username;
-									setStore({ userApi: userApi });
-									console.log("This is user API ", store.userApi);
-									// confirm return of data here
-								})
-								.catch(err => console.log("There was a following error: " + err));
-				}
-			},
+			// saveNoteList: note => {
+			// 	const store = getStore();
+			// 	store.contacts["note"] = note;
+			// 	setStore({ contacts: contacts.note });
+			// },
 			saveTokenFromSessionStorage: () => {
 				const token = sessionStorage.getItem("token");
 				if (token && token != "" && token != undefined) {
@@ -75,7 +36,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					})
 				};
 				try {
-					const resp = await fetch("https://3001-apricot-gull-2kgbaff4.ws-eu16.gitpod.io/api/token", opts);
+					const resp = await fetch("https://3001-apricot-gull-2kgbaff4.ws-eu17.gitpod.io/api/token", opts);
 					if (resp.status !== 200) {
 						alert("There has been an error.");
 						return false;
@@ -125,7 +86,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					}
 				};
 
-				fetch("https://3001-apricot-gull-2kgbaff4.ws-eu16.gitpod.io/api/greet", opts)
+				fetch("https://3001-apricot-gull-2kgbaff4.ws-eu17.gitpod.io/api/greet", opts)
 					.then(resp => resp.json())
 					.then(data => setStore({ message: data.message }))
 					.catch(err => console.log("There has been an error loading message from backend", err));
@@ -156,7 +117,9 @@ const getState = ({ getStore, setStore, getActions }) => {
 						}
 						return response.json();
 					})
-					.then(data => setStore({ contacts: data }))
+					.then(data => {
+						setStore({ contacts: data });
+					})
 					.catch(err => console.log("There was a following error: " + err));
 			},
 
@@ -182,6 +145,10 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json();
 					})
 					.then(data => {
+						const prevNotes = getStore().noteArray;
+						setStore({ noteArray: [...prevNotes, { userId: data.id, note: contact.note }] });
+						const currNotes = getStore().noteArray;
+						localStorage.setItem("notes", JSON.stringify(currNotes));
 						getActions().getFetch();
 						console.log("This is the POST fetch data ", data);
 						// confirm return of data here

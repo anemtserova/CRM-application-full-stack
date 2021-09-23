@@ -13,7 +13,7 @@ export const Login = () => {
 		actions.login(username, password).then(() => {
 			history.push("/");
 		});
-		actions.handleNoteList(username, password);
+		//actions.handleNoteList(username, password);
 		console.log("You're logged in already");
 		console.log(store.message);
 	};

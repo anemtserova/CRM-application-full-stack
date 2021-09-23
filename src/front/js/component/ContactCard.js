@@ -1,13 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
 import RetroPhonePhoto from "../../img/retro-phone.jpg";
 import { Link } from "react-router-dom";
+import { GlobalState } from "../store/appContext";
 
 export const ContactCard = props => {
+	const { store, actions } = useContext(GlobalState);
 	const [state, setState] = useState({
 		//initialize state here
 	});
+
+	const includeNote = () => {
+		const userNote = store.noteArray.find((el, i) => el.userId == props.entity.id);
+		// props.entity.note = userNote && userNote.note;
+		// console.log("USERNOTE", userNote);
+		return userNote && userNote.note;
+	};
+	// useEffect(() => {
+	// 	includeNote();
+	// }, []);
+	// console.log("USER contact", props.entity);
 
 	return (
 		<li className="list-group-item">
@@ -58,7 +71,7 @@ export const ContactCard = props => {
 						data-original-title=""
 						title=""
 					/>
-					<span className="text-muted ">{props.entity.note}</span>
+					<span className="text-muted ">{includeNote()}</span>
 				</div>
 			</div>
 		</li>

@@ -14,47 +14,29 @@ export const AddContact = props => {
 		note: null
 	});
 
-	const [noteList, setNoteList] = useState([]);
+	// const [noteList, setNoteList] = useState({
+	// 	newNote: null,
+	// 	noteId: null
+	// });
 
 	const handleInput = e => {
 		// console.log(e.target);
 		setContact({ ...contact, [e.target.name]: e.target.value });
 	};
 
-	const saveNote = () => {
-		fetch(store.userApi, {
-			method: "PUT",
-			body: JSON.stringify(
-				setNoteList({
-					label: contact.note,
-					done: false
-				})
-			),
-			headers: {
-				"Content-Type": "application/json"
-			}
-		})
-			.then(resp => {
-				if (!resp.ok) {
-					throw Error(resp.statusText);
-				}
-				return resp.json(); // (returns promise) will try to parse the result as json as return a promise that you can .then for results
-			})
-			.then(data => {
-				console.log("data from PUT ", data); //this will print on the console the exact object received from the server
-			})
-			.catch(error => {
-				//error handling
-				console.log(error);
-			});
-	};
+	// const saveNote = () => {
+	// 	actions.saveNoteList(contact.note);
+	// 	console.log("Store contacts: ", store.contacts);
+	// 	//console.log("noteList: ", noteList);
+	// 	console.log("contact: ", contact);
+	// };
 
 	const handleSave = () => {
 		actions.postFetch(contact);
-		saveNote();
+		//saveNote();
 		props.history.push("/contacts");
-		console.log("This is the note ", contact.note);
-		console.log("This is the note list", noteList);
+		console.log("This is the store.contacts ", store.contacts);
+		// console.log("This is the note list", noteList);
 	};
 	return (
 		<div className="container">
@@ -124,5 +106,6 @@ export const AddContact = props => {
 };
 
 AddContact.propTypes = {
-	history: PropTypes.object
+	history: PropTypes.object,
+	match: PropTypes.object
 };

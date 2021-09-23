@@ -21,8 +21,8 @@ api = Blueprint('api', __name__)
 def create_token():
     username = request.json.get("username", None)
     password = request.json.get("password", None)
-    if username != "test" or password != "test":
-        return jsonify({"msg": "Bad username or password"}), 401
+    # if username != "test" or password != "test":
+    #     return jsonify({"msg": "Bad username or password"}), 401
 
     access_token = create_access_token(identity=username)
     return jsonify(access_token=access_token)
@@ -33,7 +33,7 @@ def greet_user():
     
     username = get_jwt_identity()
     hello_user = {
-        "message": "Hello "+ username + "!"
+        "message": "Hello "+ username.capitalize() + "!"
         }
     
     return jsonify(hello_user)
