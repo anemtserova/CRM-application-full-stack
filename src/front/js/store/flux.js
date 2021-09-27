@@ -65,6 +65,13 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json();
 					})
 					.then(data => {
+						const prevNotes = getStore().noteArray;
+						//const newNotes = prevNotes.filter(note => note.userId == person.id);
+						//console.log("EDITfetch filtered notes", newNotes);
+						setStore({ noteArray: [...prevNotes, { userId: data.id, note: person.note }] });
+						const editedNotes = getStore().noteArray;
+						console.log("Edited Notes Array", editedNotes);
+						localStorage.setItem("notes", JSON.stringify(editedNotes));
 						getActions().getFetch();
 						// confirm return of data here
 					})
