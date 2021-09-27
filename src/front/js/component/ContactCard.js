@@ -29,12 +29,27 @@ export const ContactCard = props => {
 		);
 	};
 
-	const displayNote = (noteToDisplay, i) => {
+	const displayNote = (noteToDisplay, i, arr) => {
 		if (noteToDisplay.userId == props.entity.id) {
-			return <div key={i}>{noteToDisplay.note}</div>;
+			return (
+				<div className="d-flex justify-content-between" key={i}>
+					{noteToDisplay.note}
+					<i onClick={() => deleteNote(noteToDisplay, i, arr)} className="fas fa-trash-alt" />
+				</div>
+			);
 			{
 			}
 		}
+	};
+
+	const deleteNote = (el, index, arr) => {
+		const updatedNoteList = arr.splice(index, 1);
+		updatedNoteList.map(el => {
+			<div className="d-flex justify-content-between" key={i}>
+				{el.note}
+			</div>;
+		});
+		return updatedNoteList;
 	};
 	// useEffect(() => {
 	// 	includeNote();
@@ -79,8 +94,8 @@ export const ContactCard = props => {
 					<div className="d-flex flex-row mb-2">
 						<i className="fas fa-pen-alt text-muted mr-3" />
 						<div className="text-muted ">
-							{/* {includeNote()} */}
-							{store.noteArray && store.noteArray.map((el, i) => displayNote(el, i))
+							{includeNote()}
+							{store.noteArray && store.noteArray.map((el, i, arr) => displayNote(el, i, arr))
 							// store.noteArray.map(el => {
 							// 	if (el.userId == props.entity.id) {
 							// 		<div>
