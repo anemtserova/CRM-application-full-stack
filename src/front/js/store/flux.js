@@ -29,7 +29,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					})
 				};
 				try {
-					const resp = await fetch("https://3001-apricot-gull-2kgbaff4.ws-eu17.gitpod.io/api/token", opts);
+					const resp = await fetch("https://3001-apricot-gull-2kgbaff4.ws-eu18.gitpod.io/api/token", opts);
 					if (resp.status !== 200) {
 						alert("There has been an error.");
 						return false;
@@ -79,7 +79,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 					}
 				};
 
-				fetch("https://3001-apricot-gull-2kgbaff4.ws-eu17.gitpod.io/api/greet", opts)
+				fetch("https://3001-apricot-gull-2kgbaff4.ws-eu18.gitpod.io/api/greet", opts)
 					.then(resp => resp.json())
 					.then(data => setStore({ message: data.message }))
 					.catch(err => console.log("There has been an error loading message from backend", err));
