@@ -23,7 +23,7 @@ export const Contacts = () => {
 		<div className="container">
 			<div>
 				<p className="text-right my-3">
-					<Link className="btn btn-success" to="/add">
+					<Link className="btn btn-style" to="/add">
 						Add a new contact
 					</Link>
 				</p>

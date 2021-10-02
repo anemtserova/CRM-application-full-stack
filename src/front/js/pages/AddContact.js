@@ -27,20 +27,20 @@ export const AddContact = props => {
 	return (
 		<div className="container">
 			<div>
-				<h1 className="text-center mt-5">Add a new contact</h1>
+				<p className="text-center mt-5 heading-1">Add a new contact</p>
 				<form>
 					<div className="form-group">
-						<label>Full Name</label>
+						<label className="heading-3">Full Name</label>
 						<input
 							onChange={handleInput}
 							type="text"
-							className="form-control"
+							className="form-control "
 							name="name"
-							placeholder="Full Name"
+							placeholder="Enter full Name"
 						/>
 					</div>
 					<div className="form-group">
-						<label>Email</label>
+						<label className="heading-3">Email</label>
 						<input
 							onChange={handleInput}
 							type="email"
@@ -50,17 +50,17 @@ export const AddContact = props => {
 						/>
 					</div>
 					<div className="form-group">
-						<label>Phone</label>
+						<label className="heading-3">Phone</label>
 						<input
 							onChange={handleInput}
 							type="phone"
 							className="form-control"
 							name="phone"
-							placeholder="Enter phone"
+							placeholder="Enter phone number"
 						/>
 					</div>
 					<div className="form-group">
-						<label>Address</label>
+						<label className="heading-3">Address</label>
 						<input
 							onChange={handleInput}
 							type="text"
@@ -70,7 +70,7 @@ export const AddContact = props => {
 						/>
 					</div>
 					<div className="form-group">
-						<label>Note</label>
+						<label className="heading-3">Add a Note (optional)</label>
 						<input
 							onChange={handleInput}
 							type="text"
@@ -79,10 +79,10 @@ export const AddContact = props => {
 							placeholder="Write a note"
 						/>
 					</div>
-					<button onClick={() => handleSave()} type="button" className="btn btn-primary form-control">
+					<button onClick={() => handleSave()} type="button" className="btn btn-style form-control">
 						Save
 					</button>
-					<Link className="mt-3 w-100 text-center" to="/contacts">
+					<Link className="mt-3 w-100 text-center heading-3" to="/contacts">
 						or get back to contacts
 					</Link>
 				</form>

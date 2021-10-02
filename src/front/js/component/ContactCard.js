@@ -18,24 +18,16 @@ export const ContactCard = props => {
 		// props.entity.note = userNote && userNote.note;
 		console.log("userNote from includeNote() ", userNote);
 		console.log("whole store.noteArray ", store.noteArray);
-		return (
-			userNote && userNote.note
-			// userNote.map(el => {
-			// 	<ul>
-			// 		<li>{el.note}</li>
-			// 		{console.log("user note: ", el.note)}
-			// 	</ul>;
-			// })
-		);
+		return userNote && userNote.note;
 	};
 
 	const displayNote = (noteToDisplay, i) => {
-		if (noteToDisplay.note && noteToDisplay.userId == props.entity.id) {
+		if (noteToDisplay.note && noteToDisplay.note != "" && noteToDisplay.userId == props.entity.id) {
 			return (
 				<div className="d-flex justify-content-between w-100" key={i}>
-					<div>{noteToDisplay.note}</div>
+					<div className="text-muted">{noteToDisplay.note}</div>
 					<div>
-						<i onClick={() => actions.deleteNote(i)} className="fas fa-trash-alt" />
+						<i onClick={() => actions.deleteNote(i)} className="fas fa-trash-alt text-muted" />
 					</div>
 				</div>
 			);
@@ -44,22 +36,8 @@ export const ContactCard = props => {
 		}
 	};
 
-	// const deleteNote = (el, index, arr) => {
-	// 	const updatedNoteList = arr.splice(index, 1);
-	// 	updatedNoteList.map(el => {
-	// 		<div className="d-flex justify-content-between" key={i}>
-	// 			{el.note}
-	// 		</div>;
-	// 	});
-	// 	return updatedNoteList;
-	// };
-	// useEffect(() => {
-	// 	includeNote();
-	// }, []);
-	// console.log("USER contact", props.entity);
-
 	return (
-		<li className="list-group-item my-1">
+		<li className="list-group-item my-1 card-style">
 			<div className="d-flex flex-row w-100 ">
 				<div className="d-flex justify-content-center align-items-center w-50">
 					<img
@@ -69,18 +47,18 @@ export const ContactCard = props => {
 						style={{ maxWidth: "75%", maxHeight: "100%" }}
 					/>
 				</div>
-				<div className="d-flex flex-column w-50">
+				<div className="d-flex flex-column w-50 p-2 pl-4 m-3 info-box">
 					<div className=" d-flex flex-row justify-content-end">
 						<Link to={"/edit/" + props.entity.id}>
 							<button className="btn">
 								<i className="fas fa-pencil-alt mr-3" />
 							</button>
 						</Link>
-						<button className="btn" onClick={() => props.onDelete()}>
+						<button className="btn " onClick={() => props.onDelete()}>
 							<i className="fas fa-trash-alt" />
 						</button>
 					</div>
-					<h2 className="name ">{props.entity.full_name}</h2>
+					<h2 className="name heading-1">{props.entity.full_name}</h2>
 					<div className="d-flex flex-row mb-2">
 						<i className="fas fa-map-marker-alt text-muted mr-3" />
 						<p className="text-muted">{props.entity.address}</p>

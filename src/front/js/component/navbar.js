@@ -8,19 +8,19 @@ export const Navbar = () => {
 	const history = useHistory();
 
 	return (
-		<nav className="navbar navbar-light bg-light mb-3">
-			<span className="navbar-brand mb-0 h1">KeepItApp</span>
+		<nav className="navbar-style d-flex justify-content-between align-items-center mb-3">
+			<div className="navbar-logo mx-4">KeepIt.App</div>
 
-			<div className="ml-auto">
+			<div className="mx-4">
 				{!store.token ? (
-					<div className="ml-auto">
+					<div className="">
 						<Link to="/login">
-							<button className="btn btn-primary">Log In</button>
+							<button className="btn btn-style">Log In</button>
 						</Link>
 					</div>
 				) : (
 					<button
-						className="btn btn-warning"
+						className="btn btn-style"
 						onClick={() => {
 							actions.logout();
 							history.push("/logout");

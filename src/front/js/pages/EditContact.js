@@ -25,10 +25,10 @@ export const EditContact = props => {
 	return (
 		<div className="container">
 			<div>
-				<h1 className="text-center mt-5">Edit contact {contact.full_name}</h1>
+				<h1 className="text-center mt-5 heading-1">Edit contact: {contact.full_name}</h1>
 				<form>
 					<div className="form-group">
-						<label>Full Name</label>
+						<label className="heading-3">Full Name</label>
 						<input
 							onChange={handleInput}
 							type="text"
@@ -39,7 +39,7 @@ export const EditContact = props => {
 						/>
 					</div>
 					<div className="form-group">
-						<label>Email</label>
+						<label className="heading-3">Email</label>
 						<input
 							onChange={handleInput}
 							type="email"
@@ -50,7 +50,7 @@ export const EditContact = props => {
 						/>
 					</div>
 					<div className="form-group">
-						<label>Phone</label>
+						<label className="heading-3">Phone</label>
 						<input
 							onChange={handleInput}
 							type="phone"
@@ -61,7 +61,7 @@ export const EditContact = props => {
 						/>
 					</div>
 					<div className="form-group">
-						<label>Address</label>
+						<label className="heading-3">Address</label>
 						<input
 							onChange={handleInput}
 							type="text"
@@ -72,7 +72,7 @@ export const EditContact = props => {
 						/>
 					</div>
 					<div className="form-group">
-						<label>Add a Note (optional)</label>
+						<label className="heading-3">Add a Note (optional)</label>
 						<input
 							onChange={handleInput}
 							type="text"
@@ -82,10 +82,10 @@ export const EditContact = props => {
 							value={editedContact.note}
 						/>
 					</div>
-					<button onClick={handleSave} type="button" className="btn btn-primary form-control">
+					<button onClick={handleSave} type="button" className="btn btn-style form-control">
 						Save
 					</button>
-					<Link className="mt-3 w-100 text-center" to="/contacts">
+					<Link className="mt-3 w-100 text-center heading-3" to="/contacts">
 						or get back to contacts
 					</Link>
 				</form>

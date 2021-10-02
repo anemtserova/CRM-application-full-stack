@@ -2,8 +2,74 @@
     General Styles
 */
 
+
+
+:root {
+    --charleston-green: #293132ff;
+    --ruby-red: #a31621ff;
+    --orange-peel: #ff9f1cff;
+    --granny-smith-apple: #9cde9fff;
+    --alice-blue: #EDF7D2ff;
+}
+
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-size: 1.1rem;
+    font-family: Raleway;
+    color: var(--charleston-green);
+    
+}
+
+// body {
+//     // background: var(--alice-blue);
+// }
+
+.navbar-style {
+    background-color: var(--ruby-red);
+    color: var(--alice-blue);
+    height: 6.5rem;
+    
+}
+
+.navbar-logo {
+    font-family: Bebas Neue;
+    font-size: 3rem;
+    color: var(--alice-blue);
+}
+
+.btn-style {
+    background-color: var(--orange-peel);
+    font-family: Bebas Neue;
+    font-size: 2rem;
+}
+
+.heading-1 {
+    font-family: Bebas Neue;
+    font-size: 3rem;
+    
+}
+
+.heading-2 {
+    font-family: Bebas Neue;
+    font-size: 2.5rem;
+    
+}
+
+.heading-3 {
+    font-family: Bebas Neue;
+    font-size: 1.5rem;
+    color: var(--ruby-red);
+}
+
+.card-style {
+    background: var(--alice-blue);
+    border: 1px var(--granny-smith-apple) solid;
+    border-radius: 15px;
+}
+
+.info-box {
+    border-left: 1px solid var(--granny-smith-apple);
 }
