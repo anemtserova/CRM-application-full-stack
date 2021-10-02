@@ -82,8 +82,6 @@ const getState = ({ getStore, setStore, getActions }) => {
 					})
 					.then(data => {
 						const prevNotes = getStore().noteArray;
-						//const newNotes = prevNotes.filter(note => note.userId == person.id);
-						//console.log("EDITfetch filtered notes", newNotes);
 						if (person.note != "" && person.note != undefined) {
 							setStore({ noteArray: [...prevNotes, { userId: data.id, note: person.note }] });
 						}
