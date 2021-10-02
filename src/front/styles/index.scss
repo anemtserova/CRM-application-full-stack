@@ -4,6 +4,7 @@
 
 
 
+
 :root {
     --charleston-green: #293132ff;
     --ruby-red: #a31621ff;
@@ -22,6 +23,34 @@
     color: var(--charleston-green);
     
 }
+
+// html, body {
+//     height: 100%;
+//     position: relative;
+// }
+
+// .h-100 {
+//     height: 100%;
+// }
+
+// body {
+//     position: relative;
+//     margin: 0;
+//     min-height: 100%;
+//     overflow-x: hidden;
+// }
+  
+//   footer {
+//     position: absolute;
+//     display: flex;
+//     align-items: center;
+//     height: 4rem;
+//     right: 0;
+//     bottom: 0;
+//     left: 0;
+//     // background-color: $gray;
+//     // background: red;
+//   }
 
 // body {
 //     // background: var(--alice-blue);
@@ -72,4 +101,29 @@
 
 .info-box {
     border-left: 1px solid var(--granny-smith-apple);
+}
+
+.footer-style {
+    height: 6rem;
+    
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-logo {
+    background: var(--orange-peel);
+    border: 1px solid var(--ruby-red);
+    border-radius: 5px;
+    font-size: 1.6rem;
+    font-family: Bebas Neue;
+    padding: 3px;
+}
+
+.container {
+    min-height: 100vh;
+    overflow: hidden;
+    //display: block;
+    position: relative;
+    //padding-bottom: 5rem; 
 }

@@ -19,18 +19,20 @@ export const Home = () => {
 	);
 
 	return (
-		<div className="container-fluid">
+		<div className="container">
 			{!store.token ? (
 				<>
-					<h1>Welcome to KeepItApp</h1>
+					<p className="heading-1"> Welcome to KeepIt.App</p>
 					<Link to="/login">
-						<button className="btn btn-primary">Login Here</button>
+						<button className="btn btn-style">Log In Here</button>
 					</Link>
 				</>
 			) : (
 				<div>
-					<h1>{store.message}</h1>
-					<Link to="/contacts">Go to Your Contacts</Link>
+					<p className="heading-1">{store.message}</p>
+					<Link className="heading-3" to="/contacts">
+						Go to Your Contacts
+					</Link>
 				</div>
 			)}
 		</div>

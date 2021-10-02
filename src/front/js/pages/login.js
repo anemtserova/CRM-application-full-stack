@@ -13,9 +13,6 @@ export const Login = () => {
 		actions.login(username, password).then(() => {
 			history.push("/");
 		});
-		//actions.handleNoteList(username, password);
-		console.log("You're logged in already");
-		console.log(store.message);
 	};
 
 	// if (store.token && store.token != " " && store.token != undefined) {
@@ -24,9 +21,9 @@ export const Login = () => {
 	// }
 
 	return (
-		<div className="container-fluid d-flex flex-column align-items-center h-100">
+		<div className="container d-flex flex-column align-items-center ">
 			<div className="d-flex justify-content-center w-25">
-				<h1>User Login</h1>
+				<h1 className="heading-1">User Login</h1>
 			</div>
 			{store.token && store.token != "" && store.token != undefined ? (
 				<>
@@ -49,7 +46,7 @@ export const Login = () => {
 						onChange={e => setPassword(e.target.value)}
 						className="m-1"
 					/>
-					<button onClick={handleLogin} type="submit" className="m-1 btn btn-secondary">
+					<button onClick={handleLogin} type="submit" className="m-1 btn btn-style">
 						Login
 					</button>
 				</div>

@@ -10,7 +10,7 @@ export const Logout = () => {
 
 	return (
 		<div className="container">
-			<h1>Logged out</h1>
+			<p className="heading-1">Logged out</p>
 			{/* <ul className="list-group">
 				{store.demo.map((item, index) => {
 					return (
@@ -37,7 +37,7 @@ export const Logout = () => {
 			</ul> */}
 			<br />
 			<Link to="/">
-				<button className="btn btn-primary">Back to Home</button>
+				<button className="btn btn-style">Back to Home</button>
 			</Link>
 		</div>
 	);

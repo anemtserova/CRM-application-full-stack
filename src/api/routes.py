@@ -33,7 +33,7 @@ def greet_user():
     
     username = get_jwt_identity()
     hello_user = {
-        "message": "Hello "+ username.capitalize() + "!"
+        "message": "Hello, "+ username.capitalize() + "!"
         }
     
     return jsonify(hello_user)

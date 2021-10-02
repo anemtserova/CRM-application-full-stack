@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
 export const Footer = () => (
-	<footer className="footer mt-auto py-3 text-center h-25">
-		<p>
-			Your contacts are safe with <i>KeepItApp</i>.
+	<footer className="footer-style mt-auto py-3 text-center">
+		<p className="heading-3 ">
+			Your contacts are safe with <span className="footer-logo ">KeepIt.App</span>
 		</p>
 	</footer>
 );
