@@ -84,7 +84,9 @@ const getState = ({ getStore, setStore, getActions }) => {
 						const prevNotes = getStore().noteArray;
 						//const newNotes = prevNotes.filter(note => note.userId == person.id);
 						//console.log("EDITfetch filtered notes", newNotes);
-						setStore({ noteArray: [...prevNotes, { userId: data.id, note: person.note }] });
+						if (person.note != "" && person.note != undefined) {
+							setStore({ noteArray: [...prevNotes, { userId: data.id, note: person.note }] });
+						}
 						const editedNotes = getStore().noteArray;
 						console.log("Edited Notes Array", editedNotes);
 						localStorage.setItem("notes", JSON.stringify(editedNotes));
@@ -163,7 +165,9 @@ const getState = ({ getStore, setStore, getActions }) => {
 					})
 					.then(data => {
 						const prevNotes = getStore().noteArray;
-						setStore({ noteArray: [...prevNotes, { userId: data.id, note: contact.note }] });
+						if (contact.note != "" && contact.note != undefined) {
+							setStore({ noteArray: [...prevNotes, { userId: data.id, note: contact.note }] });
+						}
 						const currNotes = getStore().noteArray;
 						localStorage.setItem("notes", JSON.stringify(currNotes));
 						getActions().getFetch();
