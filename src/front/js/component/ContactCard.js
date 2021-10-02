@@ -30,7 +30,7 @@ export const ContactCard = props => {
 	};
 
 	const displayNote = (noteToDisplay, i) => {
-		if (noteToDisplay.userId == props.entity.id) {
+		if (noteToDisplay.note && noteToDisplay.userId == props.entity.id) {
 			return (
 				<div className="d-flex justify-content-between w-100" key={i}>
 					<div>{noteToDisplay.note}</div>

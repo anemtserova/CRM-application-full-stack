@@ -72,7 +72,7 @@ export const EditContact = props => {
 						/>
 					</div>
 					<div className="form-group">
-						<label>Note</label>
+						<label>Add a Note (optional)</label>
 						<input
 							onChange={handleInput}
 							type="text"

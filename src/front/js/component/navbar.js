@@ -23,7 +23,7 @@ export const Navbar = () => {
 						className="btn btn-warning"
 						onClick={() => {
 							actions.logout();
-							history.push("/demo");
+							history.push("/logout");
 						}}>
 						Log Out
 					</button>

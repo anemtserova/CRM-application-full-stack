@@ -45,6 +45,9 @@ const Layout = () => {
 						<Route exact path="/contacts">
 							<Contacts />
 						</Route>
+						<Route exact path="/logout">
+							<Logout />
+						</Route>
 						<Route exact path="/edit/:id">
 							<EditContact />
 						</Route>
