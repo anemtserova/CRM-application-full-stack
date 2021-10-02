@@ -15,6 +15,14 @@ const getState = ({ getStore, setStore, getActions }) => {
 				setStore({ noteArray: notesNotDeleted });
 				localStorage.setItem("notes", JSON.stringify(notesNotDeleted));
 			},
+			deleteAllUserNotes: id => {
+				const prevNotes = getStore().noteArray;
+				const notesNotDeleted = prevNotes.filter(el => {
+					return el.userId != id;
+				});
+				setStore({ noteArray: notesNotDeleted });
+				localStorage.setItem("notes", JSON.stringify(notesNotDeleted));
+			},
 			saveTokenFromSessionStorage: () => {
 				const token = sessionStorage.getItem("token");
 				if (token && token != "" && token != undefined) {
@@ -111,6 +119,7 @@ const getState = ({ getStore, setStore, getActions }) => {
 						return response.json();
 					})
 					.then(data => {
+						console.log("This is the deleteFetch data: ", data);
 						getActions().getFetch();
 						// confirm return of data here
 					})

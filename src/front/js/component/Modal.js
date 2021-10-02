@@ -10,6 +10,7 @@ export const Modal = props => {
 	const { store, actions } = useContext(GlobalState);
 	const handleDoIt = () => {
 		actions.deleteFetch(props.id);
+		actions.deleteAllUserNotes(props.id);
 		props.onClose();
 	};
 	return (

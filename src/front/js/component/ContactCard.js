@@ -97,22 +97,7 @@ export const ContactCard = props => {
 						<i className="fas fa-pen-alt text-muted mr-3" />
 						<div className="text-muted w-75">
 							{includeNote()}
-
-							{store.noteArray &&
-								store.noteArray.map(
-									(el, i) => displayNote(el, i)
-									// console.log("each note's  index", i);
-								)
-							//
-							// store.noteArray.map(el => {
-							// 	if (el.userId == props.entity.id) {
-							// 		<div>
-							// 			{console.log(`This is user ${el.userId} note: ${el.note}`)}
-							// 			<div>{includeNote()}</div>;
-							// 		</div>;
-							// 	}
-							// })
-							}
+							{store.noteArray && store.noteArray.map((el, i) => displayNote(el, i))}
 						</div>
 					</div>
 				</div>

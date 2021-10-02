@@ -31,7 +31,13 @@ export const Contacts = () => {
 					<ul className="list-group pull-down" id="contact-list">
 						{store.contacts && store.token
 							? store.contacts.map((contact, i) => (
-									<ContactCard key={i} entity={contact} onDelete={() => stateSetter(contact.id)} />
+									<ContactCard
+										key={i}
+										entity={contact}
+										onDelete={() => {
+											stateSetter(contact.id);
+										}}
+									/>
 							  ))
 							: "Loading..."}
 					</ul>
