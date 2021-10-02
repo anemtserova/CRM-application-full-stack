@@ -7,6 +7,14 @@ const getState = ({ getStore, setStore, getActions }) => {
 			noteArray: JSON.parse(localStorage.getItem("notes")) || []
 		},
 		actions: {
+			deleteNote: noteIndex => {
+				const prevNotes = getStore().noteArray;
+				const notesNotDeleted = prevNotes.filter((el, i) => {
+					return i != noteIndex;
+				});
+				setStore({ noteArray: notesNotDeleted });
+				localStorage.setItem("notes", JSON.stringify(notesNotDeleted));
+			},
 			saveTokenFromSessionStorage: () => {
 				const token = sessionStorage.getItem("token");
 				if (token && token != "" && token != undefined) {

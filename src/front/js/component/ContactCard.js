@@ -29,12 +29,14 @@ export const ContactCard = props => {
 		);
 	};
 
-	const displayNote = (noteToDisplay, i, arr) => {
+	const displayNote = (noteToDisplay, i) => {
 		if (noteToDisplay.userId == props.entity.id) {
 			return (
-				<div className="d-flex justify-content-between" key={i}>
-					{noteToDisplay.note}
-					<i onClick={() => deleteNote(noteToDisplay, i, arr)} className="fas fa-trash-alt" />
+				<div className="d-flex justify-content-between w-100" key={i}>
+					<div>{noteToDisplay.note}</div>
+					<div>
+						<i onClick={() => actions.deleteNote(i)} className="fas fa-trash-alt" />
+					</div>
 				</div>
 			);
 			{
@@ -42,15 +44,15 @@ export const ContactCard = props => {
 		}
 	};
 
-	const deleteNote = (el, index, arr) => {
-		const updatedNoteList = arr.splice(index, 1);
-		updatedNoteList.map(el => {
-			<div className="d-flex justify-content-between" key={i}>
-				{el.note}
-			</div>;
-		});
-		return updatedNoteList;
-	};
+	// const deleteNote = (el, index, arr) => {
+	// 	const updatedNoteList = arr.splice(index, 1);
+	// 	updatedNoteList.map(el => {
+	// 		<div className="d-flex justify-content-between" key={i}>
+	// 			{el.note}
+	// 		</div>;
+	// 	});
+	// 	return updatedNoteList;
+	// };
 	// useEffect(() => {
 	// 	includeNote();
 	// }, []);
@@ -93,9 +95,15 @@ export const ContactCard = props => {
 					</div>
 					<div className="d-flex flex-row mb-2">
 						<i className="fas fa-pen-alt text-muted mr-3" />
-						<div className="text-muted ">
+						<div className="text-muted w-75">
 							{includeNote()}
-							{store.noteArray && store.noteArray.map((el, i, arr) => displayNote(el, i, arr))
+
+							{store.noteArray &&
+								store.noteArray.map(
+									(el, i) => displayNote(el, i)
+									// console.log("each note's  index", i);
+								)
+							//
 							// store.noteArray.map(el => {
 							// 	if (el.userId == props.entity.id) {
 							// 		<div>
