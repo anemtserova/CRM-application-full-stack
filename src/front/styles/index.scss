@@ -105,7 +105,7 @@
 
 .footer-style {
     height: 6rem;
-    
+    margin-top: 0.2rem;
     position: relative;
     bottom: 0;
     width: 100%;
@@ -121,9 +121,16 @@
 }
 
 .container {
-    min-height: 100vh;
+    min-height: calc(100vh - 13.5rem);
     overflow: hidden;
     //display: block;
     position: relative;
     //padding-bottom: 5rem; 
+}
+
+.item1-color {
+    background: var(--ruby-red);
+}
+.item2-color {
+    background: var(--orange-peel);
 }

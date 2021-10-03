@@ -8,14 +8,10 @@ import { GlobalState } from "../store/appContext";
 export const ContactCard = props => {
 	const { store, actions } = useContext(GlobalState);
 	const [state, setState] = useState({});
-	//const userNote = [];
 
 	const includeNote = () => {
-		// const userNote = store.noteArray.map(el => {
-		// 	el.userId == props.entity.id;
-		// });
 		const userNote = store.noteArray.filter((el, i) => el.userId == props.entity.id);
-		// props.entity.note = userNote && userNote.note;
+
 		console.log("userNote from includeNote() ", userNote);
 		console.log("whole store.noteArray ", store.noteArray);
 		return userNote && userNote.note;
@@ -50,12 +46,12 @@ export const ContactCard = props => {
 				<div className="d-flex flex-column w-50 p-2 pl-4 m-3 info-box">
 					<div className=" d-flex flex-row justify-content-end">
 						<Link to={"/edit/" + props.entity.id}>
-							<button className="btn">
-								<i className="fas fa-pencil-alt mr-3" />
+							<button className="btn item2-color">
+								<i className="fas fa-pencil-alt mr-3 " />
 							</button>
 						</Link>
-						<button className="btn " onClick={() => props.onDelete()}>
-							<i className="fas fa-trash-alt" />
+						<button className="btn item1-color" onClick={() => props.onDelete()}>
+							<i className="fas fa-trash-alt " />
 						</button>
 					</div>
 					<h2 className="name heading-1">{props.entity.full_name}</h2>
