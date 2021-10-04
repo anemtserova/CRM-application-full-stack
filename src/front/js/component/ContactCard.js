@@ -20,10 +20,10 @@ export const ContactCard = props => {
 	const displayNote = (noteToDisplay, i) => {
 		if (noteToDisplay.note && noteToDisplay.note != "" && noteToDisplay.userId == props.entity.id) {
 			return (
-				<div className="d-flex justify-content-between w-100" key={i}>
+				<div className="d-flex justify-content-between w-100 mb-2" key={i}>
 					<div className="text-muted">{noteToDisplay.note}</div>
-					<div>
-						<i onClick={() => actions.deleteNote(i)} className="fas fa-trash-alt text-muted" />
+					<div className="item1-color btn">
+						<i onClick={() => actions.deleteNote(i)} className="fas fa-trash-alt  " />
 					</div>
 				</div>
 			);
@@ -44,15 +44,19 @@ export const ContactCard = props => {
 					/>
 				</div>
 				<div className="d-flex flex-column w-50 p-2 pl-4 m-3 info-box">
-					<div className=" d-flex flex-row justify-content-end">
-						<Link to={"/edit/" + props.entity.id}>
-							<button className="btn item2-color">
-								<i className="fas fa-pencil-alt mr-3 " />
+					<div className="d-flex flex-row justify-content-end">
+						<div className="mr-3">
+							<Link className="" to={"/edit/" + props.entity.id}>
+								<button className="btn item2-color w-100  ">
+									<i className="fas fa-pencil-alt w-100 " />
+								</button>
+							</Link>
+						</div>
+						<div className="">
+							<button className="btn item1-color h-100 w-100" onClick={() => props.onDelete()}>
+								<i className="fas fa-trash-alt " />
 							</button>
-						</Link>
-						<button className="btn item1-color" onClick={() => props.onDelete()}>
-							<i className="fas fa-trash-alt " />
-						</button>
+						</div>
 					</div>
 					<h2 className="name heading-1">{props.entity.full_name}</h2>
 					<div className="d-flex flex-row mb-2">
