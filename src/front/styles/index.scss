@@ -11,6 +11,7 @@
     --orange-peel: #ff9f1cff;
     --granny-smith-apple: #9cde9fff;
     --alice-blue: #EDF7D2ff;
+    --sizzling-red: #ca1622;
 }
 
 
@@ -129,10 +130,12 @@
 }
 
 .item1-color {
-    background: var(--ruby-red);
+    border: var(--ruby-red) 2px solid;
+    background: var(--orange-peel);
 }
 .item2-color {
-    background: var(--orange-peel);
+    background: var(--granny-smith-apple);
+    border: var(--charleston-green) 2px solid;
 }
 
 .box-btn-options {
@@ -140,4 +143,9 @@
     height: 0.8rem;
     border: 1px solid var(--charleston-green);
     margin: 0.2rem;
+}
+
+.note-script {
+    font-family: Nanum Pen Script;
+    font-size: 1.8rem;
 }

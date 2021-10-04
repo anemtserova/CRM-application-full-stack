@@ -21,9 +21,9 @@ export const ContactCard = props => {
 		if (noteToDisplay.note && noteToDisplay.note != "" && noteToDisplay.userId == props.entity.id) {
 			return (
 				<div className="d-flex justify-content-between w-100 mb-2" key={i}>
-					<div className="text-muted">{noteToDisplay.note}</div>
+					<div className="text-muted note-script">{noteToDisplay.note}</div>
 					<div className="item1-color btn">
-						<i onClick={() => actions.deleteNote(i)} className="fas fa-trash-alt  " />
+						<i onClick={() => actions.deleteNote(i)} className="fas fa-trash-alt align-self-center " />
 					</div>
 				</div>
 			);
@@ -60,19 +60,19 @@ export const ContactCard = props => {
 					</div>
 					<h2 className="name heading-1">{props.entity.full_name}</h2>
 					<div className="d-flex flex-row mb-2">
-						<i className="fas fa-map-marker-alt text-muted mr-3" />
+						<i className="fas fa-map-marker-alt text-muted mr-3 align-self-center" />
 						<p className="text-muted">{props.entity.address}</p>
 					</div>
 					<div className="d-flex flex-row mb-2">
-						<i className="fa fa-phone fa-fw text-muted mr-3" />
+						<i className="fa fa-phone fa-fw text-muted mr-3 align-self-center" />
 						<p className="text-muted">{props.entity.phone}</p>
 					</div>
 					<div className="d-flex flex-row mb-2">
-						<i className="fa fa-envelope fa-fw text-muted mr-3" />
+						<i className="fa fa-envelope fa-fw text-muted mr-3 align-self-center" />
 						<p className="text-muted text-truncate">{props.entity.email}</p>
 					</div>
 					<div className="d-flex flex-row mb-2">
-						<i className="fas fa-pen-alt text-muted mr-3" />
+						<i className="fas fa-pen-alt text-muted mr-3 align-self-center" />
 						<div className="text-muted w-75">
 							{includeNote()}
 							{store.noteArray && store.noteArray.map((el, i) => displayNote(el, i))}
