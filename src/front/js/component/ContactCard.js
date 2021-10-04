@@ -22,8 +22,8 @@ export const ContactCard = props => {
 			return (
 				<div className="d-flex justify-content-between w-100 mb-2" key={i}>
 					<div className="text-muted note-script">{noteToDisplay.note}</div>
-					<div className="item1-color btn">
-						<i onClick={() => actions.deleteNote(i)} className="fas fa-trash-alt align-self-center " />
+					<div className="item1-color d-flex align-items-center justify-content-center btn">
+						<i onClick={() => actions.deleteNote(i)} className="fas fa-trash-alt " />
 					</div>
 				</div>
 			);
@@ -43,7 +43,7 @@ export const ContactCard = props => {
 						style={{ maxWidth: "75%", maxHeight: "100%" }}
 					/>
 				</div>
-				<div className="d-flex flex-column w-50 p-2 pl-4 m-3 info-box">
+				<div className="d-flex flex-column w-50 py-2 pl-4 m-3 info-box">
 					<div className="d-flex flex-row justify-content-end">
 						<div className="mr-3">
 							<Link className="" to={"/edit/" + props.entity.id}>

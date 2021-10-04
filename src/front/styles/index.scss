@@ -76,6 +76,36 @@
     font-size: 2rem;
 }
 
+.btn-style-modal1 {
+    background-color: var(--orange-peel);
+    border: 2px solid var(--ruby-red);
+    font-family: Bebas Neue;
+    font-size: 1.4rem;
+}
+
+.btn-style-modal2 {
+    background-color: var(--granny-smith-apple);
+    border: 2px solid var(--charleston-green);
+    font-family: Bebas Neue;
+    font-size: 1.4rem;
+}
+
+.modal-style {
+    background: var(--alice-blue);
+    border-bottom: solid 1px var(--granny-smith-apple);
+    
+}
+
+.modal-style2 {
+    background: var(--alice-blue);
+    border-top: solid 1px var(--granny-smith-apple);
+    
+}
+
+.modal-title {
+    font-family: Bebas Neue;
+}
+
 .heading-1 {
     font-family: Bebas Neue;
     font-size: 3rem;
@@ -146,6 +176,6 @@
 }
 
 .note-script {
-    font-family: Nanum Pen Script;
+    font-family: Dancing Script;
     font-size: 1.8rem;
 }

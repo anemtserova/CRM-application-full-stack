@@ -17,7 +17,7 @@ export const Modal = props => {
 		<div className="modal" tabIndex="-1" role="dialog" style={{ display: props.show ? "inline-block" : "none" }}>
 			<div className="modal-dialog" role="document">
 				<div className="modal-content">
-					<div className="modal-header">
+					<div className="modal-header modal-style">
 						<h5 className="modal-title">Are you sure?</h5>
 						{props.onClose ? (
 							<button
@@ -35,13 +35,13 @@ export const Modal = props => {
 					<div className="modal-body">
 						<p>You are about to delete this contact permanantly. This action is irreversible.</p>
 					</div>
-					<div className="modal-footer">
-						<button type="button" className="btn btn-primary" onClick={() => props.onClose()}>
+					<div className="modal-footer modal-style2">
+						<button type="button" className="btn btn-style-modal2" onClick={() => props.onClose()}>
 							Cancel
 						</button>
 						<button
 							type="button"
-							className="btn btn-secondary"
+							className="btn btn-style-modal1"
 							data-dismiss="modal"
 							onClick={() => handleDoIt()}>
 							Delete
