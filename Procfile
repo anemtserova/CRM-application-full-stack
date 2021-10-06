@@ -1,2 +1,2 @@
 release: pipenv run upgrade
-worker: gunicorn wsgi --chdir ./src/
+web: gunicorn wsgi --chdir ./src/
