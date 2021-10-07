@@ -9,4 +9,4 @@ JWT_SECRET=sdkfjhksldfhslfkjhlskjghffgghhssdkhpfpmapoi
 # Front-End Variables
 BASENAME=/
 
-BACKEND_URL=https://3001-apricot-gull-2kgbaff4.ws-eu18.gitpod.io
+BACKEND_URL=
